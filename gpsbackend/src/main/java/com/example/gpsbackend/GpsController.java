@@ -16,28 +16,28 @@ public class GpsController {
     }
 
     /**
-     * **<font color="#36393b">监听来自Python脚本的连接测试（GET /）。</font>**
-     * **<font color="#36393b">返回一个简单的成功消息。</font>**
+     * 监听来自Python脚本的连接测试（GET /）。
+     * 返回一个简单的成功消息。
      */
     @GetMapping("/")
     public String home() {
-        System.out.println(" **<font color=\"#0000FF\">收到来自Python的HTTP连接测试请求。</font>** ");
+        System.out.println("收到来自Python的HTTP连接测试请求。");
         return "Spring Boot Backend is running!";
     }
 
     /**
-     * **<font color="#36393b">接收Python脚本发送的GPS数据（POST /api/gps_data）。</font>**
-     * **<font color="#36393b">并将接收到的数据打印到控制台。</font>**
+     * 接收Python脚本发送的GPS数据（POST /api/gps_data）。
+     * 并将接收到的数据打印到控制台。
      */
     @PostMapping("/api/gps_data")
     public ResponseEntity<String> receiveGpsData(@RequestBody GpsData gpsData) {
-        System.out.println("\n **<font color=\"#F5B041\">**************************************************</font>** ");
-        System.out.println(" **<font color=\"#1ABC9C\">收到来自Python的GPS数据:</font>** ");
-        System.out.println("  **<font color=\"#3498DB\">纬度 (Latitude):</font>** " + gpsData.getLatitude());
-        System.out.println("  **<font color=\"#3498DB\">经度 (Longitude):</font>** " + gpsData.getLongitude());
-        System.out.println("  **<font color=\"#3498DB\">设备ID (Device ID):</font>** " + gpsData.getDevice_id());
-        System.out.println("  **<font color=\"#3498DB\">时间戳 (Timestamp):</font>** " + String.format("%.6f", gpsData.getTimestamp()));
-        System.out.println(" **<font color=\"#F5B041\">**************************************************</font>** \n");
+        System.out.println("\n**************************************************");
+        System.out.println(" 收到来自Python的GPS数据:");
+        System.out.println(" 纬度 (Latitude):" + gpsData.getLatitude());
+        System.out.println(" 经度 (Longitude):" + gpsData.getLongitude());
+        System.out.println(" 设备ID (Device ID):" + gpsData.getDevice_id());
+        System.out.println(" 时间戳 (Timestamp):" + String.format("%.6f", gpsData.getTimestamp()));
+        System.out.println(" >**************************************************\n");
 
         return new ResponseEntity<>("GPS数据接收成功！", HttpStatus.OK);
     }

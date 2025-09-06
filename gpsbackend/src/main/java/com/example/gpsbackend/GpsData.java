@@ -1,6 +1,6 @@
 package com.example.gpsbackend;
 
-import lombok.Data; // 自动生成getter, setter, equals, hashCode, toString方法
+import lombok.Data;
 
 /**
  * 用于接收从Python脚本发送的GPS数据的DTO（数据传输对象）。
