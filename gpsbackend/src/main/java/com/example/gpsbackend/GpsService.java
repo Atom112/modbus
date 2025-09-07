@@ -42,7 +42,7 @@ public class GpsService {
             // Python脚本中的 /notify_request_received 路由接受 POST 或 GET 请求
             ResponseEntity<String> response = restTemplate.postForEntity(url, null, String.class);
             System.out.println("已向Python发送GPS数据收集请求。响应状态码: " + response.getStatusCode());
-            System.out.println("响应体:</font>** " + response.getBody());
+            System.out.println("响应体:" + response.getBody());
         } catch (Exception e) {
             System.err.println("向Python发送GPS数据收集请求失败:" + e.getMessage());
         }
